@@ -12,6 +12,7 @@ import org.mifos.mobile.cn.R
 import org.mifos.mobile.cn.enums.AccountType
 import org.mifos.mobile.cn.ui.base.MifosBaseActivity
 import org.mifos.mobile.cn.ui.base.MifosBaseFragment
+import org.mifos.mobile.cn.ui.mifos.Main
 import org.mifos.mobile.cn.ui.mifos.customerAccounts.CustomerAccountFragment
 import org.mifos.mobile.cn.ui.mifos.customerDetails.CustomerDetailsActivity
 import org.mifos.mobile.cn.ui.mifos.loanApplication.loanActivity.LoanApplicationActivity
@@ -49,6 +50,7 @@ class DashboardFragment : MifosBaseFragment(), View.OnClickListener, SwipeRefres
         ll_accounts.setOnClickListener(this)
         ll_account_overview.setOnClickListener(this)
         ll_recent_transactions.setOnClickListener(this)
+        ll_charges.setOnClickListener(this)
         swipe_home_container.setOnRefreshListener(this)
     }
 
@@ -77,6 +79,9 @@ class DashboardFragment : MifosBaseFragment(), View.OnClickListener, SwipeRefres
             R.id.ll_recent_transactions -> {
                 showRecentTransactions()
             }
+            R.id.ll_charges ->{
+                test()
+            }
         }
     }
 
@@ -104,6 +109,11 @@ class DashboardFragment : MifosBaseFragment(), View.OnClickListener, SwipeRefres
         (activity as MifosBaseActivity)
                 .replaceFragment(RecentTransactionsFragment.Companion.newInstance(),
                         true, R.id.container)
+    }
+    private fun test(){
+        val intent = Intent(activity, Main::class.java)
+        intent.putExtra(ConstantKeys.CUSTOMER_IDENTIFIER, "customer_identifier")
+        startActivity(intent)
     }
 
     override fun onRefresh() {
