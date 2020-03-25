@@ -10,8 +10,11 @@
         <item name="android:buttonStyle">@style/AppTheme.Button</item>
         <item name="buttonStyle">@style/AppTheme.Button</item>
         <item name="android:textViewStyle">@style/AppTheme.Text</item>
+        <item name="android:statusBarColor">@color/violet</item>
     </style>
-
+    <style name="AppTheme.Toolbar" parent="ThemeOverlay.MaterialComponents.Light">
+        <item name="android:background">@color/violet</item>
+    </style>
     <style name="AppTheme.Black" parent="Theme.AppCompat.Light.NoActionBar">
         <!-- Customize your theme here. -->
         <item name="colorPrimary">@color/black</item>
@@ -34,7 +37,7 @@
     </style>
 
     <style name="AppTheme.Text" parent="android:Widget.TextView">
-        <item name="android:textSize">17sp</item>
+        <item name="android:textSize">20sp</item>
         <item name="android:textColor">@color/colorPrimaryText</item>
     </style>
 

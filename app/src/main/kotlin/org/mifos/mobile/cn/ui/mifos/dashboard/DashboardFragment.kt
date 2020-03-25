@@ -9,14 +9,17 @@ import kotlinx.android.synthetic.main.fragment_dashboard.*
 import org.mifos.mobile.cn.data.models.customer.Customer
 import org.mifos.mobile.cn.R
 import org.mifos.mobile.cn.enums.AccountType
+import org.mifos.mobile.cn.ui.Test1
 import org.mifos.mobile.cn.ui.base.MifosBaseActivity
 import org.mifos.mobile.cn.ui.base.MifosBaseFragment
+import org.mifos.mobile.cn.ui.mifos.Main
 import org.mifos.mobile.cn.ui.mifos.customerAccounts.CustomerAccountFragment
 import org.mifos.mobile.cn.ui.mifos.customerDetails.CustomerDetailsActivity
 import org.mifos.mobile.cn.ui.mifos.customerProfile.CustomerProfileActivity
 import org.mifos.mobile.cn.ui.mifos.loanApplication.loanActivity.LoanApplicationActivity
 import org.mifos.mobile.cn.ui.mifos.recentTransactions.RecentTransactionsFragment
 import org.mifos.mobile.cn.ui.utils.ConstantKeys
+import kotlin.random.Random.Default.Companion
 
 
 class DashboardFragment : MifosBaseFragment(), View.OnClickListener {
@@ -54,6 +57,7 @@ class DashboardFragment : MifosBaseFragment(), View.OnClickListener {
         ll_accounts.setOnClickListener(this)
         ll_account_overview.setOnClickListener(this)
         ll_recent_transactions.setOnClickListener(this)
+        ll_charges.setOnClickListener(this)
     }
 
     override fun onCreateOptionsMenu(menu: Menu, inflater: MenuInflater) {
@@ -78,6 +82,9 @@ class DashboardFragment : MifosBaseFragment(), View.OnClickListener {
             }
             R.id.iv_user_image -> {
                 openCustomerProfile()
+            }
+            R.id.ll_charges ->{
+                test()
             }
         }
     }
@@ -108,5 +115,10 @@ class DashboardFragment : MifosBaseFragment(), View.OnClickListener {
         (activity as MifosBaseActivity)
                 .replaceFragment(RecentTransactionsFragment.Companion.newInstance(),
                         true,R.id.container)
+    }
+    private fun test(){
+        val intent = Intent(activity, Main::class.java)
+        intent.putExtra(ConstantKeys.CUSTOMER_IDENTIFIER, "customer_identifier")
+        startActivity(intent)
     }
 }

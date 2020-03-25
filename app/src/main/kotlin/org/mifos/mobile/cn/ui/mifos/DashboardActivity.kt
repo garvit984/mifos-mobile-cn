@@ -98,10 +98,6 @@ class DashboardActivity : MifosBaseActivity(), View.OnClickListener, NavigationV
         val actionBarDrawerToggle = object : ActionBarDrawerToggle(this,
                 drawerLayout, getToolbar(), R.string.open_drawer, R.string.close_drawer) {
 
-            override fun onDrawerClosed(drawerView: View) {
-                super.onDrawerClosed(drawerView)
-            }
-
             override fun onDrawerOpened(drawerView: View) {
                 super.onDrawerOpened(drawerView)
                 hideKeyboard(drawerView)
