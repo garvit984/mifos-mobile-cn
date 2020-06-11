@@ -13,6 +13,7 @@ import org.mifos.mobile.cn.enums.AccountType
 import org.mifos.mobile.cn.ui.base.MifosBaseActivity
 import org.mifos.mobile.cn.ui.base.MifosBaseFragment
 import org.mifos.mobile.cn.ui.mifos.Main
+import org.mifos.mobile.cn.ui.mifos.QRGenerator
 import org.mifos.mobile.cn.ui.mifos.customerAccounts.CustomerAccountFragment
 import org.mifos.mobile.cn.ui.mifos.customerDetails.CustomerDetailsActivity
 import org.mifos.mobile.cn.ui.mifos.loanApplication.loanActivity.LoanApplicationActivity
@@ -82,7 +83,16 @@ class DashboardFragment : MifosBaseFragment(), View.OnClickListener, SwipeRefres
             R.id.ll_charges ->{
                 test()
             }
+            R.id.ll_surveys ->{
+                qrcode()
+            }
         }
+    }
+
+    private fun qrcode() {
+        val intent = Intent(activity, QRGenerator::class.java)
+        intent.putExtra(ConstantKeys.CUSTOMER_IDENTIFIER, "customer_identifier")
+        startActivity(intent)
     }
 
     private fun applyForLoan() {
