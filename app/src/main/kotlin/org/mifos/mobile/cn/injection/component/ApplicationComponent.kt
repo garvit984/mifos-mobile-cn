@@ -30,8 +30,9 @@ interface ApplicationComponent {
     fun dataManagerLoanDetails(): DataManagerLoanDetails
     fun dataManagerIndividualLending():DataManagerIndividualLending
     fun dataManagerDepositDetails():DataManagerDepositDetails
-
+    fun dataManagerTransaction():DataManagerTransaction
 
     fun inject(fineractInterceptor: MifosInterceptor)
+    //fun inject(apiInterceptor: ApiInterceptor)
     fun inject(fineractApplication: MifosApplication)
 }
